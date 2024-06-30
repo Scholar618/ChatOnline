@@ -9,6 +9,7 @@
 #include <iostream>
 #include <mutex>
 #include <QByteArray>
+#include <QJsonObject>
 
 
 extern std::function<void (QWidget *)> repolish; // 重新刷新函数实现qss

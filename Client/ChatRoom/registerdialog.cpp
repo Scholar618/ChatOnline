@@ -25,14 +25,17 @@ registerDialog::~registerDialog()
     delete ui;
 }
 
-void registerDialog::on_get_cpde_clicked()
+void registerDialog::on_get_code_clicked()
 {
     auto mail = ui->email_lineEdit->text();
     QRegularExpression regex(R"((\w+)(\.|_)?(\w*)@(\w+)(\.(\w+))+)"); // 正则表达式匹配邮箱
     bool match = regex.match(mail).hasMatch();
     if(match){
         // 发送http验证码
-        showTip("错误提示", true);
+        QJsonObject json_obj;
+        json_obj["email"] = mail;
+        HttpMgr::GetInstance()->PostHttpReq(QUrl("http://localhost:8080/get_varifycode"),
+                                            json_obj, ReqId::ID_GET_VARIFY_CODE,Modules::REGISTERMOD);
 
     }else{
         showTip("邮箱地址不正确！", false);

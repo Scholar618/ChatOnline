@@ -16,11 +16,11 @@ class HttpMgr:public QObject, public Singleton<HttpMgr>,
     Q_OBJECT
 public:
     ~HttpMgr();
+    void PostHttpReq(QUrl url, QJsonObject json, ReqId req_id, Modules mod);// 发送Http函数
 
 private:
     friend class Singleton<HttpMgr>;
     HttpMgr();
-    void PostHttpReg(QUrl url, QJsonObject json, ReqId req_id, Modules mod);// 发送Http函数
     QNetworkAccessManager _manager;
 
 private slots:

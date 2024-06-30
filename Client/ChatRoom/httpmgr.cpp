@@ -12,7 +12,7 @@ HttpMgr::HttpMgr()
     connect(this, &HttpMgr::sig_http_finish, this, &HttpMgr::slot_http_finish);
 }
 
-void HttpMgr::PostHttpReg(QUrl url, QJsonObject json, ReqId req_id, Modules mod)
+void HttpMgr::PostHttpReq(QUrl url, QJsonObject json, ReqId req_id, Modules mod)
 {
     QByteArray data = QJsonDocument(json).toJson();
     QNetworkRequest request(url);

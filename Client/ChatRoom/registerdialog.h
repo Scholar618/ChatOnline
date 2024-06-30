@@ -17,8 +17,10 @@ public:
     ~registerDialog();
 
 private slots:
-    void on_get_cpde_clicked();
+    void on_get_code_clicked();
     void slot_reg_mod_finish(ReqId id, QString res, ErrorCodes err);
+    void on_get_cpde_clicked();
+
 private:
     Ui::registerDialog *ui;
     void showTip(QString str, bool m_ok);
