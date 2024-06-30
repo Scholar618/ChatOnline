@@ -34,8 +34,10 @@ void registerDialog::on_get_code_clicked()
         // 发送http验证码
         QJsonObject json_obj;
         json_obj["email"] = mail;
-        HttpMgr::GetInstance()->PostHttpReq(QUrl("http://localhost:8080/get_varifycode"),
-                                            json_obj, ReqId::ID_GET_VARIFY_CODE,Modules::REGISTERMOD);
+//        HttpMgr::GetInstance()->PostHttpReq(QUrl("http://localhost:8080/get_varifycode"),
+//                                            json_obj, ReqId::ID_GET_VARIFY_CODE,Modules::REGISTERMOD);
+        HttpMgr::GetInstance()->PostHttpReq(QUrl(gate_url_prefix+"/get_varifycode"),
+                            json_obj, ReqId::ID_GET_VARIFY_CODE,Modules::REGISTERMOD);
 
     }else{
         showTip("邮箱地址不正确！", false);

@@ -31,4 +31,7 @@ enum ErrorCodes{
     ERR_NETWORK = 2, // 网络错误
 };
 
+// 发送的网络前缀
+extern QString gate_url_prefix;
+
 #endif // GLOBAL_H
